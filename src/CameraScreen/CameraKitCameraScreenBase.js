@@ -170,17 +170,6 @@ export default class CameraScreenBase extends Component {
     );
   }
 
-  numberOfImagesTaken() {
-    const numberTook = this.state.captureImages.length;
-    if (numberTook >= 2) {
-      return numberTook;
-    } else if (this.state.captured) {
-      return '1';
-    } else {
-      return '';
-    }
-  }
-
   renderCaptureButton() {
     return (this.props.captureButtonImage && !this.isCaptureRetakeMode()) &&
       <View style={styles.captureButtonContainer}>
@@ -191,11 +180,6 @@ export default class CameraScreenBase extends Component {
             source={this.props.captureButtonImage}
             resizeMode={'contain'}
           />
-          <View style={styles.textNumberContainer}>
-            <Text>
-              {this.numberOfImagesTaken()}
-            </Text>
-          </View>
 
         </TouchableOpacity>
       </View >
