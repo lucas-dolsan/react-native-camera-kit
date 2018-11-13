@@ -215,9 +215,9 @@ public class SaveImageTask extends AsyncTask<byte[], Void, Void> {
             default:
                 break;  // Unknown
         }
-        if (isCameraFacingFront) {
+/*         if (isCameraFacingFront) {
             matrix.postRotate(180);
-        }
+        } */
     }
 
     private Metadata readMetadata(byte[] rawImageData) throws ImageProcessingException, IOException {
