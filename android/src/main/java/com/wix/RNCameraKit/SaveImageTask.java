@@ -188,7 +188,6 @@ public class SaveImageTask extends AsyncTask<byte[], Void, Void> {
 
   private void convertExifOrientationToMatrix(Matrix matrix, int exifOrientation, boolean isCameraFacingFront) {
     System.out.println("oieeeeeeeeeeeeeeeeeeeeeeeeeee");
-    Toast.makeText(getActivity(), "This is my Toast message!", Toast.LENGTH_LONG).show();
     switch (exifOrientation) {
     case 1:
       break; // top left
