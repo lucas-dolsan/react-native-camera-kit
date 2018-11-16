@@ -1,4 +1,4 @@
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 const NativeGalleryModule = NativeModules.NativeGalleryModule;
 
 async function getAlbumsWithThumbnails() {
@@ -17,7 +17,7 @@ async function getImagesForIds(imagesUris = []) {
 async function getImageForTapEvent(nativeEvent) {
   const selectedImageId = nativeEvent.selected;
   const imageUri = selectedImageId && await getImageUriForId(selectedImageId);
-  return {selectedImageId, imageUri, width: nativeEvent.width, height: nativeEvent.height};
+  return { selectedImageId, imageUri, width: nativeEvent.width, height: nativeEvent.height };
 }
 
 async function getImagesForCameraEvent(event) {
@@ -26,6 +26,7 @@ async function getImagesForCameraEvent(event) {
   }
 
   const images = [];
+
   event.captureImages.forEach(async (image) => {
     images.push({
       ...image,
@@ -48,12 +49,11 @@ async function requestDevicePhotosAuthorization() {
 }
 
 async function resizeImage(image = {}, quality = 'original') {
-    if (quality === 'original') {
-        return images;
-    }
+  if (quality === 'original') {
+    return images;
+  }
   return await NativeGalleryModule.resizeImage(image, quality);
 }
-
 
 export default {
   checkDevicePhotosAuthorizationStatus,
